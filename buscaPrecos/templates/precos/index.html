@@ -13,6 +13,14 @@
   <div id="sidebar">
     <h2>Página inicial</h2>
     <p>Olá!</p>
+    <ul>
+      {% for product in products %}
+        <li>{{product.nome}}</li>
+        <li>{{product.preco}}</li>
+        <li><img src="{{product.imagem}}" alt=""></li>
+      {% endfor %}  
+    </ul>
+    
   </div>
 </body>
 </html>
