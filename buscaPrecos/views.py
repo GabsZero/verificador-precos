@@ -1,4 +1,4 @@
-from buscaPrecos.services.product import CrawlerService
+from buscaPrecos.services.crawler import CrawlerService
 from django.shortcuts import render
 
 
@@ -17,9 +17,9 @@ def index(request):
         crawler = CrawlerService()
         crawler.searchInCasasBahia(search)
         data = crawler.getResult()
-    except:
+    except Exception as inst:
         #do varios nada
-        print('não há consulta')
+        print(inst)
 
     context = {
         'products': data

@@ -6,7 +6,9 @@ class CrawlerService:
     products = []
 
     def getResult(self):
-        return self.products
+        products = self.products
+        self.products = []
+        return products
 
     def searchInCasasBahia(self, search):
         driver = webdriver.Chrome()
@@ -14,6 +16,9 @@ class CrawlerService:
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
         time.sleep(5)  
         results = driver.find_elements_by_xpath("//*[@id='__next']/div[2]/div/div/div[4]/div[2]/div/article/ul")
+        if(len(results) < 1):
+            results = driver.find_elements_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/div[2]/div/article/ul")
+
         # loop over results
         for result in results:
             products = result.find_elements_by_tag_name("a")
