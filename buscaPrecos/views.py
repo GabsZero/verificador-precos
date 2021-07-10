@@ -1,11 +1,6 @@
 from django.shortcuts import render
-import urllib.request
-from bs4 import BeautifulSoup
-from selenium.webdriver.common.by import By
-
 from selenium import webdriver
 import time
-import pandas as pd
 
 # Create your views here.
 from .models import Produto
