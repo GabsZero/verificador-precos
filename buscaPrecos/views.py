@@ -15,8 +15,8 @@ def index(request):
         search = request.GET['s']
 
         crawler = CrawlerService()
-        crawler.searchInCasasBahia(search)
-        data = crawler.getResult()
+        crawler.getProductsFromCasasBahia(search)
+        data = crawler.getResults()
     except Exception as inst:
         #do varios nada
         print(inst)
