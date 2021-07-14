@@ -3,24 +3,31 @@
 <html>
 <head>
   <title>{% block title %}{% endblock %}</title>
-  <link href="{% static "css/blog.css" %}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+  
 </head>
 <body>
-  <div id="content">
-    {% block content %}
-    {% endblock %}
-  </div>
-  <div id="sidebar">
-    <h2>Página inicial</h2>
-    <p>Olá!</p>
-    <ul>
-      {% for product in products %}
-        <li>{{product.nome}}</li>
-        <li>{{product.preco}}</li>
-        <li><img src="{{product.imagem}}" alt=""></li>
-      {% endfor %}  
-    </ul>
-    
+  <div class="body-container">
+    <div class="main-container">
+      <nav class="search">
+        <input type="search" name="search-field" id="search-field">
+        <input type="submit" name="submit" value="buscar" id="search-button">
+      </nav>
+      <div class="row">
+        <div class="col">
+          <section class="section-box">
+            teste
+          </section>
+        </div>  
+      </div>
+      <div class="row">
+        <div class="col">
+          <section class="section-box">
+            teste
+          </section>
+        </div>  
+      </div>
+    </div>
   </div>
 </body>
 </html>
