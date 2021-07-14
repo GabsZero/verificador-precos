@@ -7,12 +7,11 @@ class CrawlerService:
     # this will hold information found in pages
     products = []
 
-    def getResults(self):
-        products = []
-        products = self.products
-        self.products = []
+    def clearResults(self):
+        self.products.clear()
 
-        return products
+    def getResults(self):
+        return self.products
 
     def casasBahiaRequest(self, search):
         urlRequest = f"https://prd-api-partner.viavarejo.com.br/api/search?resultsPerPage=20&terms={search}&salesChannel=desktop&apiKey=casasbahia"

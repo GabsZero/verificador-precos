@@ -1,5 +1,6 @@
 from buscaPrecos.services.crawler import CrawlerService
 from django.shortcuts import render
+from slugify import slugify
 
 
 # Create your views here.
@@ -12,9 +13,10 @@ def index(request):
     try:
         # trying to get the parameter first
         #if it fail, nothing will happen
-        search = request.GET['s']
+        search = slugify(request.GET['s'])
 
         crawler = CrawlerService()
+        crawler.clearResults()
         crawler.getProductsFromCasasBahia(search)
         data = crawler.getResults()
     except Exception as inst:
