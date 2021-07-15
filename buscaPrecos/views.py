@@ -18,6 +18,7 @@ def index(request):
         crawler = CrawlerService()
         crawler.clearResults()
         crawler.getProductsFromCasasBahia(search)
+        crawler.getProductsFromAmericanas(search)
         data = crawler.getResults()
     except Exception as inst:
         #do varios nada
